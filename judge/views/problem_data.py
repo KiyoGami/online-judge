@@ -191,17 +191,16 @@ class ProblemDataView(TitleMixin, ProblemManagerMixin):
 
             old_cases = ProblemTestCase.objects.filter(dataset_id=problem.id)
             if len(old_cases) == 0 and len(valid_files) > 2:
-                io_files = sorted([(os.path.split(file)[0], file) for file in valid_files[1:]], key=lambda x: (x[0], x[1]))
-                number_of_cases = len(io_files)//2
+                io_files = sorted([(os.path.split(f)[0], f) for f in valid_files[1:]], key=lambda x: (x[0], x[1]))
+                number_of_cases = len(io_files) // 2
                 points_each_case = int(problem.points / number_of_cases)
                 remain_points = problem.points - number_of_cases * points_each_case
                 for i in range(number_of_cases):
                     points = points_each_case
-                    if i == number_of_cases - 1: points += remain_points
-                    case = ProblemTestCase(dataset=problem, order=i+1, type='C', 
-                                            input_file=io_files[i*2][1],
-                                            output_file=io_files[i*2+1][1],
-                                            points = points, is_pretest=False)
+                    if i == number_of_cases - 1:
+                        points += remain_points
+                    case = ProblemTestCase(dataset=problem, order=i + 1, type='C', input_file=io_files[i * 2][1],
+                                           output_file=io_files[i * 2 + 1][1], points=points, is_pretest=False)
                     case.dataset_id = problem.id
                     case.save()
             else:

@@ -44,7 +44,7 @@ class ProblemData(models.Model):
     feedback = models.TextField(verbose_name=_('init.yml generation feedback'), blank=True)
     checker = models.CharField(max_length=10, verbose_name=_('checker'), choices=CHECKERS, blank=True)
     checker_file = models.FileField(verbose_name=_('checker file'), storage=problem_data_storage, null=True, blank=True,
-                                 upload_to=problem_directory_file)
+                                    upload_to=problem_directory_file)
     checker_args = models.TextField(verbose_name=_('checker arguments'), blank=True,
                                     help_text=_('Checker arguments as a JSON object.'))
 
@@ -100,10 +100,17 @@ class ProblemTestCase(models.Model):
 
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
-        if kwargs.get('dataset'): self.dataset = kwargs['dataset']
-        if kwargs.get('order'): self.order = kwargs['order']
-        if kwargs.get('type'): self.type = kwargs['type']
-        if kwargs.get('input_file'): self.input_file = kwargs['input_file']
-        if kwargs.get('output_file'): self.output_file = kwargs['output_file']
-        if kwargs.get('points'): self.points = kwargs['points']
-        if kwargs.get('is_pretest'): self.is_pretest = kwargs['is_pretest']
+        if kwargs.get('dataset'):
+            self.dataset = kwargs['dataset']
+        if kwargs.get('order'):
+            self.order = kwargs['order']
+        if kwargs.get('type'):
+            self.type = kwargs['type']
+        if kwargs.get('input_file'):
+            self.input_file = kwargs['input_file']
+        if kwargs.get('output_file'):
+            self.output_file = kwargs['output_file']
+        if kwargs.get('points'):
+            self.points = kwargs['points']
+        if kwargs.get('is_pretest'):
+            self.is_pretest = kwargs['is_pretest']
