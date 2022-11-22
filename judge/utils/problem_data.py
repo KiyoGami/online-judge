@@ -51,7 +51,7 @@ class ProblemDataCompiler(object):
         self.data = data
         self.cases = cases
         self.files = files
-
+        self.checker_file = data.checker_file
         self.generator = data.generator
 
     def make_init(self):
@@ -64,11 +64,17 @@ class ProblemDataCompiler(object):
             cases.append(batch)
 
         def make_checker(case):
-            if case.checker_args:
-                return {
-                    'name': case.checker,
-                    'args': json.loads(case.checker_args),
-                }
+            if case.checker == 'bridged':
+                if self.checker_file and self.checker_file.name.endswith('cpp'):
+                    return {
+                        'name': case.checker,
+                        'args': {
+                            'file': case.checker_file.name.split('/')[-1],
+                            'lang': 'CPP20',
+                            'type': 'testlib',
+                        },
+                    }
+                return 'standard'
             return case.checker
 
         for i, case in enumerate(self.cases, 1):

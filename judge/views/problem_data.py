@@ -50,7 +50,7 @@ class ProblemDataForm(ModelForm):
 
     class Meta:
         model = ProblemData
-        fields = ['zipfile', 'generator', 'output_limit', 'output_prefix', 'checker', 'checker_args']
+        fields = ['zipfile', 'generator', 'output_limit', 'output_prefix', 'checker', 'checker_file', 'checker_args']
         widgets = {
             'checker_args': HiddenInput,
         }
@@ -73,7 +73,7 @@ class ProblemCaseForm(ModelForm):
         }
 
 
-class ProblemCaseFormSet(formset_factory(ProblemCaseForm, formset=BaseModelFormSet, extra=1, max_num=1,
+class ProblemCaseFormSet(formset_factory(ProblemCaseForm, formset=BaseModelFormSet, extra=0, max_num=1,
                                          can_delete=True)):
     model = ProblemTestCase
 
@@ -188,11 +188,28 @@ class ProblemDataView(TitleMixin, ProblemManagerMixin):
         cases_formset = self.get_case_formset(valid_files, post=True)
         if data_form.is_valid() and cases_formset.is_valid():
             data = data_form.save()
-            for case in cases_formset.save(commit=False):
-                case.dataset_id = problem.id
-                case.save()
-            for case in cases_formset.deleted_objects:
-                case.delete()
+
+            old_cases = ProblemTestCase.objects.filter(dataset_id=problem.id)
+            if len(old_cases) == 0 and len(valid_files) > 2:
+                io_files = sorted([(os.path.split(file)[0], file) for file in valid_files[1:]], key=lambda x: (x[0], x[1]))
+                number_of_cases = len(io_files)//2
+                points_each_case = int(problem.points / number_of_cases)
+                remain_points = problem.points - number_of_cases * points_each_case
+                for i in range(number_of_cases):
+                    points = points_each_case
+                    if i == number_of_cases - 1: points += remain_points
+                    case = ProblemTestCase(dataset=problem, order=i+1, type='C', 
+                                            input_file=io_files[i*2][1],
+                                            output_file=io_files[i*2+1][1],
+                                            points = points, is_pretest=False)
+                    case.dataset_id = problem.id
+                    case.save()
+            else:
+                for case in cases_formset.save(commit=False):
+                    case.dataset_id = problem.id
+                    case.save()
+                for case in cases_formset.deleted_objects:
+                    case.delete()
             ProblemDataCompiler.generate(problem, data, problem.cases.order_by('order'), valid_files)
             return HttpResponseRedirect(request.get_full_path())
         return self.render_to_response(self.get_context_data(data_form=data_form, cases_formset=cases_formset,
