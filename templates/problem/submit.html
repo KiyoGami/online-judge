@@ -59,7 +59,7 @@
                     RefPresenter.prototype.bind = function (container, $container) {
                         container.on('results:focus', function (params) {
                             var data = makeDisplayData($("option[data-id=" + params.data.id + "]"));
-                            $("#result-version-info").text(data);
+                            $("#result-version-info").text('RUNTIME: ' + data);
                         });
                         RefPresenter.__super__.bind.call(this, container, $container);
                     };
@@ -149,9 +149,8 @@
             }
 
             #result-version-info {
-                border-bottom: 1px solid rgb(148, 148, 148);
-                margin: 0px 1em;
-                color: #757575;
+                margin: 0px 1.5em;
+                color: green;
                 font-weight: 600;
                 padding: 0.2em 0;
                 text-align: right;
@@ -166,9 +165,14 @@
                 flex-direction: column-reverse;
             }
 
+            #language-select2.select2-dropdown--below{
+                padding-bottom: 1em;
+            }
+
             #language-select2 .select2-results__option {
                 color: #757575 !important;
                 background: white !important;
+                font-weight: 500;
             }
 
             #language-select2 .select2-results__option--highlighted {
@@ -181,7 +185,7 @@
             }
 
             #language-select2 .select2-results__option {
-                padding: 4px 0px;
+                padding: 5px 0px;
             }
 
             #language-select2 .select2-results__options {
@@ -237,15 +241,6 @@
         {% csrf_token %}
         {{ form.non_field_errors() }}
         <div id="submit-wrapper">
-            <div id="editor">
-                <div class="file-wrapper">
-                    <label for="file-upload">{{_('Chose file to upload')}}</label>
-                    <input id="file-upload" type="file" onchange="FileToText()">
-                </div>
-                {{ form.source.errors }}
-                {{ form.source }}
-            </div>
-
             {% if not no_judges %}
                 <div id="language">
                     {{ form.language.errors }}
@@ -261,6 +256,20 @@
                     </div>
                 </div>
             {% endif %}
+            
+            <hr>
+
+            <div id="editor">
+                {{ form.source.errors }}
+                {{ form.source }}
+            </div>
+
+            <hr>
+
+            <div class="file-wrapper">
+                <label for="file-upload">{{_('Chose file to upload')}}</label>
+                <input id="file-upload" name="code" type="file" onchange="FileToText()">
+            </div>
         </div>
 
         <hr>
