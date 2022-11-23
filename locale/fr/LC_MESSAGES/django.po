@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dmoj\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-22 13:53+0000\n"
+"POT-Creation-Date: 2022-11-23 11:22+0700\n"
 "PO-Revision-Date: 2022-06-27 00:59\n"
 "Last-Translator: \n"
 "Language-Team: French\n"
@@ -2006,79 +2006,85 @@ msgstr "fichier zip de données"
 msgid "generator file"
 msgstr "fichier de générateur"
 
-#: judge/models/problem_data.py:42 judge/models/problem_data.py:95
+#: judge/models/problem_data.py:42
+#, fuzzy
+#| msgid "generator file"
+msgid "interactor file"
+msgstr "fichier de générateur"
+
+#: judge/models/problem_data.py:44 judge/models/problem_data.py:99
 msgid "output prefix length"
 msgstr "longueur du préfixe de sortie"
 
-#: judge/models/problem_data.py:43 judge/models/problem_data.py:96
+#: judge/models/problem_data.py:45 judge/models/problem_data.py:100
 msgid "output limit length"
 msgstr "longueur de la limite de sortie"
 
-#: judge/models/problem_data.py:44
+#: judge/models/problem_data.py:46
 msgid "init.yml generation feedback"
 msgstr "feedback sur la génération de init.yml"
 
-#: judge/models/problem_data.py:45 judge/models/problem_data.py:97
+#: judge/models/problem_data.py:47 judge/models/problem_data.py:101
 msgid "checker"
 msgstr "vérificateur"
 
-#: judge/models/problem_data.py:46
+#: judge/models/problem_data.py:48
 #, fuzzy
 #| msgid "checker"
 msgid "checker file"
 msgstr "vérificateur"
 
-#: judge/models/problem_data.py:48 judge/models/problem_data.py:98
+#: judge/models/problem_data.py:50 judge/models/problem_data.py:102
 msgid "checker arguments"
 msgstr "arguments du vérificateur"
 
-#: judge/models/problem_data.py:49 judge/models/problem_data.py:99
+#: judge/models/problem_data.py:51 judge/models/problem_data.py:103
 #, fuzzy
 #| msgid "checker arguments as a JSON object"
 msgid "Checker arguments as a JSON object."
 msgstr "arguments du vérificateur en tant qu'objet JSON"
 
-#: judge/models/problem_data.py:82
+#: judge/models/problem_data.py:86
 msgid "problem data set"
 msgstr ""
 
-#: judge/models/problem_data.py:84
+#: judge/models/problem_data.py:88
 msgid "case position"
 msgstr "position du cas"
 
-#: judge/models/problem_data.py:85
+#: judge/models/problem_data.py:89
 msgid "case type"
 msgstr "type de cas"
 
-#: judge/models/problem_data.py:86
+#: judge/models/problem_data.py:90
 msgid "Normal case"
 msgstr "Cas normal"
 
-#: judge/models/problem_data.py:87
+#: judge/models/problem_data.py:91
 msgid "Batch start"
 msgstr "Début de lot"
 
-#: judge/models/problem_data.py:88
+#: judge/models/problem_data.py:92
 msgid "Batch end"
 msgstr "Fin de lot"
 
-#: judge/models/problem_data.py:90
+#: judge/models/problem_data.py:94
 msgid "input file name"
 msgstr "nom du fichier d'entrée"
 
-#: judge/models/problem_data.py:91
+#: judge/models/problem_data.py:95
 msgid "output file name"
 msgstr "nom du fichier de sortie"
 
-#: judge/models/problem_data.py:92
+#: judge/models/problem_data.py:96
 msgid "generator arguments"
 msgstr "arguments du générateur"
 
-#: judge/models/problem_data.py:93
+#: judge/models/problem_data.py:97
 msgid "point value"
 msgstr "valeur de points"
 
-#: judge/models/problem_data.py:94
+#: judge/models/problem_data.py:98
 msgid "case is pretest?"
 msgstr "cas est prétest ?"
 
@@ -3029,41 +3035,47 @@ msgstr ""
 msgid "Preparing your comment data"
 msgstr ""
 
-#: judge/utils/problem_data.py:62
+#: judge/utils/problem_data.py:63
 msgid "Empty batches not allowed."
 msgstr "Les lots vides ne sont pas autorisés."
 
-#: judge/utils/problem_data.py:87
+#: judge/utils/problem_data.py:88
 #, python-format
 msgid "Points must be defined for non-batch case #%d."
 msgstr ""
 
-#: judge/utils/problem_data.py:92
+#: judge/utils/problem_data.py:93
 #, python-format
 msgid "Input file for case %d does not exist: %s"
 msgstr "Le fichier d'entrée pour le cas %d n'existe pas : %s"
 
-#: judge/utils/problem_data.py:95
+#: judge/utils/problem_data.py:96
 #, python-format
 msgid "Output file for case %d does not exist: %s"
 msgstr "Le fichier de sortie pour le cas %d n'existe pas : %s"
 
-#: judge/utils/problem_data.py:120
+#: judge/utils/problem_data.py:121
 #, python-format
 msgid "Batch start case #%d requires points."
 msgstr ""
 
-#: judge/utils/problem_data.py:141
+#: judge/utils/problem_data.py:142
 #, python-format
 msgid "Attempt to end batch outside of one in case #%d."
 msgstr ""
 
-#: judge/utils/problem_data.py:159
+#: judge/utils/problem_data.py:160
 msgid "How did you corrupt the zip path?"
 msgstr "Comment avez-vous corrompu le chemin zip ?"
 
-#: judge/utils/problem_data.py:165
+#: judge/utils/problem_data.py:166
 msgid "How did you corrupt the generator path?"
+msgstr "Comment avez-vous corrompu le chemin du générateur ?"
+
+#: judge/utils/problem_data.py:172
+#, fuzzy
+#| msgid "How did you corrupt the generator path?"
+msgid "How did you corrupt the interactor path?"
 msgstr "Comment avez-vous corrompu le chemin du générateur ?"
 
 #: judge/utils/problems.py:75
@@ -3529,22 +3541,22 @@ msgstr "Les arguments du vérificateur sont des JSON invalides"
 msgid "Your zip file is invalid!"
 msgstr "Votre fichier zip est invalide !"
 
-#: judge/views/problem_data.py:104 judge/views/problem_data.py:107
+#: judge/views/problem_data.py:107 judge/views/problem_data.py:110
 #, python-brace-format
 msgid "Comparing submissions for {0}"
 msgstr ""
 
-#: judge/views/problem_data.py:143
+#: judge/views/problem_data.py:146
 #, python-brace-format
 msgid "Editing data for {0}"
 msgstr "Modification des données pour {0}"
 
-#: judge/views/problem_data.py:146
+#: judge/views/problem_data.py:149
 #, python-format
 msgid "Editing data for %s"
 msgstr "Modification des données pour %s"
 
-#: judge/views/problem_data.py:260 judge/views/problem_data.py:261
+#: judge/views/problem_data.py:263 judge/views/problem_data.py:264
 #, python-format
 msgid "Generated init.yml for %s"
 msgstr "init.yml généré pour %s"

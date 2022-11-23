@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dmoj\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-22 13:53+0000\n"
+"POT-Creation-Date: 2022-11-23 11:22+0700\n"
 "PO-Revision-Date: 2022-05-21 00:47\n"
 "Last-Translator: \n"
 "Language-Team: Turkish\n"
@@ -1961,79 +1961,85 @@ msgstr "data zip dosyası"
 msgid "generator file"
 msgstr "generator dosyası"
 
-#: judge/models/problem_data.py:42 judge/models/problem_data.py:95
+#: judge/models/problem_data.py:42
+#, fuzzy
+#| msgid "generator file"
+msgid "interactor file"
+msgstr "generator dosyası"
+
+#: judge/models/problem_data.py:44 judge/models/problem_data.py:99
 msgid "output prefix length"
 msgstr "çıktı öneki uzunluğu"
 
-#: judge/models/problem_data.py:43 judge/models/problem_data.py:96
+#: judge/models/problem_data.py:45 judge/models/problem_data.py:100
 msgid "output limit length"
 msgstr "çıktı sınır uzunluğu"
 
-#: judge/models/problem_data.py:44
+#: judge/models/problem_data.py:46
 msgid "init.yml generation feedback"
 msgstr "init.yml oluşturma mesajı"
 
-#: judge/models/problem_data.py:45 judge/models/problem_data.py:97
+#: judge/models/problem_data.py:47 judge/models/problem_data.py:101
 msgid "checker"
 msgstr ""
 
-#: judge/models/problem_data.py:46
+#: judge/models/problem_data.py:48
 #, fuzzy
 #| msgid "checker arguments"
 msgid "checker file"
 msgstr "checker değişkenleri"
 
-#: judge/models/problem_data.py:48 judge/models/problem_data.py:98
+#: judge/models/problem_data.py:50 judge/models/problem_data.py:102
 msgid "checker arguments"
 msgstr "checker değişkenleri"
 
-#: judge/models/problem_data.py:49 judge/models/problem_data.py:99
+#: judge/models/problem_data.py:51 judge/models/problem_data.py:103
 #, fuzzy
 #| msgid "checker arguments as a JSON object"
 msgid "Checker arguments as a JSON object."
 msgstr "checker değişkenleri, JSON nesnesi olarak"
 
-#: judge/models/problem_data.py:82
+#: judge/models/problem_data.py:86
 msgid "problem data set"
 msgstr ""
 
-#: judge/models/problem_data.py:84
+#: judge/models/problem_data.py:88
 msgid "case position"
 msgstr "test konumu"
 
-#: judge/models/problem_data.py:85
+#: judge/models/problem_data.py:89
 msgid "case type"
 msgstr "test tipi"
 
-#: judge/models/problem_data.py:86
+#: judge/models/problem_data.py:90
 msgid "Normal case"
 msgstr "Normal test"
 
-#: judge/models/problem_data.py:87
+#: judge/models/problem_data.py:91
 msgid "Batch start"
 msgstr "Küme başlangıcı"
 
-#: judge/models/problem_data.py:88
+#: judge/models/problem_data.py:92
 msgid "Batch end"
 msgstr "Küme sonu"
 
-#: judge/models/problem_data.py:90
+#: judge/models/problem_data.py:94
 msgid "input file name"
 msgstr "girdi dosya adı"
 
-#: judge/models/problem_data.py:91
+#: judge/models/problem_data.py:95
 msgid "output file name"
 msgstr "çıktı dosya adı"
 
-#: judge/models/problem_data.py:92
+#: judge/models/problem_data.py:96
 msgid "generator arguments"
 msgstr "generator değişkenleri"
 
-#: judge/models/problem_data.py:93
+#: judge/models/problem_data.py:97
 msgid "point value"
 msgstr "puan değeri"
 
-#: judge/models/problem_data.py:94
+#: judge/models/problem_data.py:98
 msgid "case is pretest?"
 msgstr "ön test mi?"
 
@@ -2965,42 +2971,48 @@ msgstr ""
 msgid "Preparing your comment data"
 msgstr ""
 
-#: judge/utils/problem_data.py:62
+#: judge/utils/problem_data.py:63
 msgid "Empty batches not allowed."
 msgstr "Kümeler boş olamaz."
 
-#: judge/utils/problem_data.py:87
+#: judge/utils/problem_data.py:88
 #, python-format
 msgid "Points must be defined for non-batch case #%d."
 msgstr "Küme olmayan test #%d için puan tanımlanmalıdır."
 
-#: judge/utils/problem_data.py:92
+#: judge/utils/problem_data.py:93
 #, python-format
 msgid "Input file for case %d does not exist: %s"
 msgstr "Test #%d için girdi dosyası yok: %s"
 
-#: judge/utils/problem_data.py:95
+#: judge/utils/problem_data.py:96
 #, python-format
 msgid "Output file for case %d does not exist: %s"
 msgstr "Test #%d için çıktı dosyası yok: %s"
 
-#: judge/utils/problem_data.py:120
+#: judge/utils/problem_data.py:121
 #, python-format
 msgid "Batch start case #%d requires points."
 msgstr "Küme başlangıç testi #%d puan değerine sahip olmalıdır."
 
-#: judge/utils/problem_data.py:141
+#: judge/utils/problem_data.py:142
 #, fuzzy, python-format
 #| msgid "Attempt to end batch outside of one in case #%d"
 msgid "Attempt to end batch outside of one in case #%d."
 msgstr "Test #%d bir kümenin içinde değil, ancak küme bitişini işaret ediyor"
 
-#: judge/utils/problem_data.py:159
+#: judge/utils/problem_data.py:160
 msgid "How did you corrupt the zip path?"
 msgstr "Zip yolunu bozmayı nasıl becerdin?"
 
-#: judge/utils/problem_data.py:165
+#: judge/utils/problem_data.py:166
 msgid "How did you corrupt the generator path?"
+msgstr "Generator yolunu bozmayı nasıl becerdin?"
+
+#: judge/utils/problem_data.py:172
+#, fuzzy
+#| msgid "How did you corrupt the generator path?"
+msgid "How did you corrupt the interactor path?"
 msgstr "Generator yolunu bozmayı nasıl becerdin?"
 
 #: judge/utils/problems.py:75
@@ -3474,22 +3486,22 @@ msgstr "Checker değişkeni olarak geçersiz JSON verdin"
 msgid "Your zip file is invalid!"
 msgstr "Zip dosyan geçersiz!"
 
-#: judge/views/problem_data.py:104 judge/views/problem_data.py:107
+#: judge/views/problem_data.py:107 judge/views/problem_data.py:110
 #, python-brace-format
 msgid "Comparing submissions for {0}"
 msgstr "Çözümleri karşılaştır - {0}"
 
-#: judge/views/problem_data.py:143
+#: judge/views/problem_data.py:146
 #, python-brace-format
 msgid "Editing data for {0}"
 msgstr "Verileri düzenle - {0}"
 
-#: judge/views/problem_data.py:146
+#: judge/views/problem_data.py:149
 #, python-format
 msgid "Editing data for %s"
 msgstr "%s için verileri düzenle"
 
-#: judge/views/problem_data.py:260 judge/views/problem_data.py:261
+#: judge/views/problem_data.py:263 judge/views/problem_data.py:264
 #, python-format
 msgid "Generated init.yml for %s"
 msgstr "%s için init.yml oluşturuldu"

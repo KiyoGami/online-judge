@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dmoj\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-22 13:53+0000\n"
+"POT-Creation-Date: 2022-11-23 11:22+0700\n"
 "PO-Revision-Date: 2022-05-20 00:55\n"
 "Last-Translator: \n"
 "Language-Team: German\n"
@@ -1921,75 +1921,79 @@ msgstr ""
 msgid "generator file"
 msgstr ""
 
-#: judge/models/problem_data.py:42 judge/models/problem_data.py:95
+#: judge/models/problem_data.py:42
+msgid "interactor file"
+msgstr ""
+
+#: judge/models/problem_data.py:44 judge/models/problem_data.py:99
 msgid "output prefix length"
 msgstr ""
 
-#: judge/models/problem_data.py:43 judge/models/problem_data.py:96
+#: judge/models/problem_data.py:45 judge/models/problem_data.py:100
 msgid "output limit length"
 msgstr ""
 
-#: judge/models/problem_data.py:44
+#: judge/models/problem_data.py:46
 msgid "init.yml generation feedback"
 msgstr ""
 
-#: judge/models/problem_data.py:45 judge/models/problem_data.py:97
+#: judge/models/problem_data.py:47 judge/models/problem_data.py:101
 msgid "checker"
 msgstr ""
 
-#: judge/models/problem_data.py:46
+#: judge/models/problem_data.py:48
 msgid "checker file"
 msgstr ""
 
-#: judge/models/problem_data.py:48 judge/models/problem_data.py:98
+#: judge/models/problem_data.py:50 judge/models/problem_data.py:102
 msgid "checker arguments"
 msgstr ""
 
-#: judge/models/problem_data.py:49 judge/models/problem_data.py:99
+#: judge/models/problem_data.py:51 judge/models/problem_data.py:103
 msgid "Checker arguments as a JSON object."
 msgstr ""
 
-#: judge/models/problem_data.py:82
+#: judge/models/problem_data.py:86
 msgid "problem data set"
 msgstr ""
 
-#: judge/models/problem_data.py:84
+#: judge/models/problem_data.py:88
 msgid "case position"
 msgstr ""
 
-#: judge/models/problem_data.py:85
+#: judge/models/problem_data.py:89
 msgid "case type"
 msgstr ""
 
-#: judge/models/problem_data.py:86
+#: judge/models/problem_data.py:90
 msgid "Normal case"
 msgstr ""
 
-#: judge/models/problem_data.py:87
+#: judge/models/problem_data.py:91
 msgid "Batch start"
 msgstr ""
 
-#: judge/models/problem_data.py:88
+#: judge/models/problem_data.py:92
 msgid "Batch end"
 msgstr ""
 
-#: judge/models/problem_data.py:90
+#: judge/models/problem_data.py:94
 msgid "input file name"
 msgstr ""
 
-#: judge/models/problem_data.py:91
+#: judge/models/problem_data.py:95
 msgid "output file name"
 msgstr ""
 
-#: judge/models/problem_data.py:92
+#: judge/models/problem_data.py:96
 msgid "generator arguments"
 msgstr ""
 
-#: judge/models/problem_data.py:93
+#: judge/models/problem_data.py:97
 msgid "point value"
 msgstr ""
 
-#: judge/models/problem_data.py:94
+#: judge/models/problem_data.py:98
 msgid "case is pretest?"
 msgstr ""
 
@@ -2880,41 +2884,45 @@ msgstr ""
 msgid "Preparing your comment data"
 msgstr ""
 
-#: judge/utils/problem_data.py:62
+#: judge/utils/problem_data.py:63
 msgid "Empty batches not allowed."
 msgstr ""
 
-#: judge/utils/problem_data.py:87
+#: judge/utils/problem_data.py:88
 #, python-format
 msgid "Points must be defined for non-batch case #%d."
 msgstr ""
 
-#: judge/utils/problem_data.py:92
+#: judge/utils/problem_data.py:93
 #, python-format
 msgid "Input file for case %d does not exist: %s"
 msgstr ""
 
-#: judge/utils/problem_data.py:95
+#: judge/utils/problem_data.py:96
 #, python-format
 msgid "Output file for case %d does not exist: %s"
 msgstr ""
 
-#: judge/utils/problem_data.py:120
+#: judge/utils/problem_data.py:121
 #, python-format
 msgid "Batch start case #%d requires points."
 msgstr ""
 
-#: judge/utils/problem_data.py:141
+#: judge/utils/problem_data.py:142
 #, python-format
 msgid "Attempt to end batch outside of one in case #%d."
 msgstr ""
 
-#: judge/utils/problem_data.py:159
+#: judge/utils/problem_data.py:160
 msgid "How did you corrupt the zip path?"
 msgstr ""
 
-#: judge/utils/problem_data.py:165
+#: judge/utils/problem_data.py:166
 msgid "How did you corrupt the generator path?"
+msgstr ""
+
+#: judge/utils/problem_data.py:172
+msgid "How did you corrupt the interactor path?"
 msgstr ""
 
 #: judge/utils/problems.py:75
@@ -3365,22 +3373,22 @@ msgstr ""
 msgid "Your zip file is invalid!"
 msgstr ""
 
-#: judge/views/problem_data.py:104 judge/views/problem_data.py:107
+#: judge/views/problem_data.py:107 judge/views/problem_data.py:110
 #, python-brace-format
 msgid "Comparing submissions for {0}"
 msgstr ""
 
-#: judge/views/problem_data.py:143
+#: judge/views/problem_data.py:146
 #, python-brace-format
 msgid "Editing data for {0}"
 msgstr ""
 
-#: judge/views/problem_data.py:146
+#: judge/views/problem_data.py:149
 #, python-format
 msgid "Editing data for %s"
 msgstr ""
 
-#: judge/views/problem_data.py:260 judge/views/problem_data.py:261
+#: judge/views/problem_data.py:263 judge/views/problem_data.py:264
 #, python-format
 msgid "Generated init.yml for %s"
 msgstr ""

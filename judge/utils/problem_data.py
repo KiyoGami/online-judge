@@ -52,6 +52,7 @@ class ProblemDataCompiler(object):
         self.files = files
         self.checker_file = data.checker_file
         self.generator = data.generator
+        self.interactor = data.interactor
 
     def make_init(self):
         cases = []
@@ -164,6 +165,16 @@ class ProblemDataCompiler(object):
             if len(generator_path) != 2:
                 raise ProblemDataError(_('How did you corrupt the generator path?'))
             init['generator'] = generator_path[1]
+
+        if self.interactor:
+            interactor_path = split_path_first(self.interactor.name)
+            if len(interactor_path) != 2:
+                raise ProblemDataError(_('How did you corrupt the interactor path?'))
+            init['interactive'] = {
+                'files': [interactor_path[1]],
+                'lang': 'CPP20',
+                'type': 'testlib',
+            }
 
         pretest_test_cases = []
         test_cases = []

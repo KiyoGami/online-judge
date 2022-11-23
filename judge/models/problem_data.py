@@ -39,6 +39,8 @@ class ProblemData(models.Model):
                                upload_to=problem_directory_file)
     generator = models.FileField(verbose_name=_('generator file'), storage=problem_data_storage, null=True, blank=True,
                                  upload_to=problem_directory_file)
+    interactor = models.FileField(verbose_name=_('interactor file'), storage=problem_data_storage, null=True,
+                                  blank=True, upload_to=problem_directory_file)
     output_prefix = models.IntegerField(verbose_name=_('output prefix length'), blank=True, null=True)
     output_limit = models.IntegerField(verbose_name=_('output limit length'), blank=True, null=True)
     feedback = models.TextField(verbose_name=_('init.yml generation feedback'), blank=True)
@@ -72,6 +74,8 @@ class ProblemData(models.Model):
             self.zipfile.name = _problem_directory_file(new, self.zipfile.name)
         if self.generator:
             self.generator.name = _problem_directory_file(new, self.generator.name)
+        if self.interactor:
+            self.interactor.name = _problem_directory_file(new, self.interactor.name)
         if self.checker_file:
             self.checker_file.name = _problem_directory_file(new, self.checker_file.name)
         self.save()

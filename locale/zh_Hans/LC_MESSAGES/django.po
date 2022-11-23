@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dmoj\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-22 13:53+0000\n"
+"POT-Creation-Date: 2022-11-23 11:22+0700\n"
 "PO-Revision-Date: 2022-07-04 01:01\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1955,79 +1955,85 @@ msgstr "zip数据文件"
 msgid "generator file"
 msgstr "生成器文件"
 
-#: judge/models/problem_data.py:42 judge/models/problem_data.py:95
+#: judge/models/problem_data.py:42
+#, fuzzy
+#| msgid "generator file"
+msgid "interactor file"
+msgstr "生成器文件"
+
+#: judge/models/problem_data.py:44 judge/models/problem_data.py:99
 msgid "output prefix length"
 msgstr "输出前缀长度"
 
-#: judge/models/problem_data.py:43 judge/models/problem_data.py:96
+#: judge/models/problem_data.py:45 judge/models/problem_data.py:100
 msgid "output limit length"
 msgstr "输出限制长度"
 
-#: judge/models/problem_data.py:44
+#: judge/models/problem_data.py:46
 msgid "init.yml generation feedback"
 msgstr "init.yml生成反馈"
 
-#: judge/models/problem_data.py:45 judge/models/problem_data.py:97
+#: judge/models/problem_data.py:47 judge/models/problem_data.py:101
 msgid "checker"
 msgstr "检查器"
 
-#: judge/models/problem_data.py:46
+#: judge/models/problem_data.py:48
 #, fuzzy
 #| msgid "checker"
 msgid "checker file"
 msgstr "检查器"
 
-#: judge/models/problem_data.py:48 judge/models/problem_data.py:98
+#: judge/models/problem_data.py:50 judge/models/problem_data.py:102
 msgid "checker arguments"
 msgstr "检查器参数"
 
-#: judge/models/problem_data.py:49 judge/models/problem_data.py:99
+#: judge/models/problem_data.py:51 judge/models/problem_data.py:103
 #, fuzzy
 #| msgid "checker arguments as a JSON object"
 msgid "Checker arguments as a JSON object."
 msgstr "检查器参数作为JSON对象"
 
-#: judge/models/problem_data.py:82
+#: judge/models/problem_data.py:86
 msgid "problem data set"
 msgstr "题目数据集"
 
-#: judge/models/problem_data.py:84
+#: judge/models/problem_data.py:88
 msgid "case position"
 msgstr "测试编号"
 
-#: judge/models/problem_data.py:85
+#: judge/models/problem_data.py:89
 msgid "case type"
 msgstr "测试类型"
 
-#: judge/models/problem_data.py:86
+#: judge/models/problem_data.py:90
 msgid "Normal case"
 msgstr "正常测试"
 
-#: judge/models/problem_data.py:87
+#: judge/models/problem_data.py:91
 msgid "Batch start"
 msgstr "测试组开始"
 
-#: judge/models/problem_data.py:88
+#: judge/models/problem_data.py:92
 msgid "Batch end"
 msgstr "测试组结束"
 
-#: judge/models/problem_data.py:90
+#: judge/models/problem_data.py:94
 msgid "input file name"
 msgstr "输入的文件的名称"
 
-#: judge/models/problem_data.py:91
+#: judge/models/problem_data.py:95
 msgid "output file name"
 msgstr "输出文件的名称"
 
-#: judge/models/problem_data.py:92
+#: judge/models/problem_data.py:96
 msgid "generator arguments"
 msgstr "生成器参数"
 
-#: judge/models/problem_data.py:93
+#: judge/models/problem_data.py:97
 msgid "point value"
 msgstr "分数"
 
-#: judge/models/problem_data.py:94
+#: judge/models/problem_data.py:98
 msgid "case is pretest?"
 msgstr "是否为预测试？"
 
@@ -2966,42 +2972,48 @@ msgstr "正在准备您的提交资料"
 msgid "Preparing your comment data"
 msgstr "正在准备您的评论资料"
 
-#: judge/utils/problem_data.py:62
+#: judge/utils/problem_data.py:63
 msgid "Empty batches not allowed."
 msgstr "不允许测试组为空。"
 
-#: judge/utils/problem_data.py:87
+#: judge/utils/problem_data.py:88
 #, python-format
 msgid "Points must be defined for non-batch case #%d."
 msgstr "编号为%d的组外测试必须设置分数。"
 
-#: judge/utils/problem_data.py:92
+#: judge/utils/problem_data.py:93
 #, python-format
 msgid "Input file for case %d does not exist: %s"
 msgstr "编号为%d的测试输入文件不存在：%s"
 
-#: judge/utils/problem_data.py:95
+#: judge/utils/problem_data.py:96
 #, python-format
 msgid "Output file for case %d does not exist: %s"
 msgstr "编号为%d的测试输出文件不存在：%s"
 
-#: judge/utils/problem_data.py:120
+#: judge/utils/problem_data.py:121
 #, python-format
 msgid "Batch start case #%d requires points."
 msgstr "编号为%d的测试组必须设置分数。"
 
-#: judge/utils/problem_data.py:141
+#: judge/utils/problem_data.py:142
 #, fuzzy, python-format
 #| msgid "Attempt to end batch outside of one in case #%d"
 msgid "Attempt to end batch outside of one in case #%d."
 msgstr "测试编号%d：试图在组外结束测试组"
 
-#: judge/utils/problem_data.py:159
+#: judge/utils/problem_data.py:160
 msgid "How did you corrupt the zip path?"
 msgstr "你怎么损坏zip文件路径？"
 
-#: judge/utils/problem_data.py:165
+#: judge/utils/problem_data.py:166
 msgid "How did you corrupt the generator path?"
+msgstr "你怎么使生成器路径崩溃？"
+
+#: judge/utils/problem_data.py:172
+#, fuzzy
+#| msgid "How did you corrupt the generator path?"
+msgid "How did you corrupt the interactor path?"
 msgstr "你怎么使生成器路径崩溃？"
 
 #: judge/utils/problems.py:75
@@ -3463,22 +3475,22 @@ msgstr "检查参数是无效的 JSON"
 msgid "Your zip file is invalid!"
 msgstr "您的 zip 文件是无效的！"
 
-#: judge/views/problem_data.py:104 judge/views/problem_data.py:107
+#: judge/views/problem_data.py:107 judge/views/problem_data.py:110
 #, python-brace-format
 msgid "Comparing submissions for {0}"
 msgstr "比较 {0} 的提交"
 
-#: judge/views/problem_data.py:143
+#: judge/views/problem_data.py:146
 #, python-brace-format
 msgid "Editing data for {0}"
 msgstr "正在编辑 {0} 的数据"
 
-#: judge/views/problem_data.py:146
+#: judge/views/problem_data.py:149
 #, python-format
 msgid "Editing data for %s"
 msgstr "编辑%s的测试数据"
 
-#: judge/views/problem_data.py:260 judge/views/problem_data.py:261
+#: judge/views/problem_data.py:263 judge/views/problem_data.py:264
 #, python-format
 msgid "Generated init.yml for %s"
 msgstr "为%s生成的init.yml"
