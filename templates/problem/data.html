@@ -244,7 +244,7 @@
             });
 
             var checker_file = $('#id_problem-data-checker_file').parent().parent();
-            checker_file.hide();
+            if($('#id_problem-data-checker').find(':selected').val() != 'bridged') checker_file.hide();
             $('#id_problem-data-checker').change((e) => {
                 var checker = $('#id_problem-data-checker').find(':selected').val();
                 if(checker == 'bridged') checker_file.show();
