@@ -50,12 +50,9 @@ class ProblemDataForm(ModelForm):
 
     class Meta:
         model = ProblemData
-        fields = ['zipfile', 'interactor', 'generator', 'output_limit', 'output_prefix',
-                  'checker', 'checker_file', 'checker_args']
+        fields = ['zipfile', 'generator', 'output_limit', 'output_prefix', 'checker', 'checker_file', 'checker_args']
         widgets = {
             'checker_args': HiddenInput,
-            'output_prefix': HiddenInput,
-            'generator': HiddenInput,
         }
 
 
@@ -194,7 +191,9 @@ class ProblemDataView(TitleMixin, ProblemManagerMixin):
 
             old_cases = ProblemTestCase.objects.filter(dataset_id=problem.id)
             if len(old_cases) == 0 and len(valid_files) > 2:
-                io_files = sorted([(os.path.split(f)[0], f) for f in valid_files[1:]], key=lambda x: (x[0], x[1]))
+                if valid_files[0].endswith('/'):
+                    valid_files = valid_files[1:]
+                io_files = sorted([(os.path.split(f)[0], f) for f in valid_files], key=lambda x: (x[0], x[1]))
                 number_of_cases = len(io_files) // 2
                 points_each_case = int(problem.points / number_of_cases)
                 remain_points = problem.points - number_of_cases * points_each_case
