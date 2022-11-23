@@ -69,7 +69,7 @@ class ProblemDataCompiler(object):
                     return {
                         'name': case.checker,
                         'args': {
-                            'file': case.checker_file.name.split('/')[-1],
+                            'files': [case.checker_file.name.split('/')[-1]],
                             'lang': 'CPP20',
                             'type': 'testlib',
                         },
