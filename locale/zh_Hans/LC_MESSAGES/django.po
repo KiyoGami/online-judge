@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dmoj\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-23 11:22+0700\n"
+"POT-Creation-Date: 2022-11-23 08:55+0000\n"
 "PO-Revision-Date: 2022-07-04 01:01\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3490,7 +3490,7 @@ msgstr "正在编辑 {0} 的数据"
 msgid "Editing data for %s"
 msgstr "编辑%s的测试数据"
 
-#: judge/views/problem_data.py:263 judge/views/problem_data.py:264
+#: judge/views/problem_data.py:265 judge/views/problem_data.py:266
 #, python-format
 msgid "Generated init.yml for %s"
 msgstr "为%s生成的init.yml"
@@ -4667,7 +4667,7 @@ msgstr "输出文件"
 msgid "Pretest?"
 msgstr "预测试？"
 
-#: templates/problem/data.html:433 templates/problem/submit.html:260
+#: templates/problem/data.html:433 templates/problem/submit.html:273
 msgid "Submit!"
 msgstr "提交！"
 
@@ -4913,15 +4913,19 @@ msgstr "随机"
 msgid "Your source code must contain at most 65536 characters."
 msgstr "您的程序必须最多包含 65536 个字符。"
 
-#: templates/problem/submit.html:204
+#: templates/problem/submit.html:212
 msgid "Warning!"
 msgstr "警告！"
 
-#: templates/problem/submit.html:222
+#: templates/problem/submit.html:230
 msgid "You have 0 submissions left"
 msgstr "你還可以提交0次"
 
-#: templates/problem/submit.html:256
+#: templates/problem/submit.html:242
+msgid "Chose file to upload"
+msgstr ""
+
+#: templates/problem/submit.html:269
 msgid "No judge is available for this problem."
 msgstr "此题目没有可用的裁判服务器。"
 

@@ -121,6 +121,14 @@
                 });
             });
         </script>
+        <script>
+            function FileToText(){
+                var file = document.getElementById("file-upload").files[0];
+                var reader = new FileReader();
+                reader.onload = () => ace_source.session.setValue(reader.result);
+                if(file) reader.readAsText(file);
+            }
+        </script>
     {% endcompress %}
 {% endblock %}
 
@@ -230,9 +238,14 @@
         {{ form.non_field_errors() }}
         <div id="submit-wrapper">
             <div id="editor">
+                <div class="file-wrapper">
+                    <label for="file-upload">{{_('Chose file to upload')}}</label>
+                    <input id="file-upload" type="file" onchange="FileToText()">
+                </div>
                 {{ form.source.errors }}
                 {{ form.source }}
             </div>
+
             {% if not no_judges %}
                 <div id="language">
                     {{ form.language.errors }}

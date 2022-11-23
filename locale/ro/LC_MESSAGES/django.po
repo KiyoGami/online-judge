@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dmoj\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-23 11:22+0700\n"
+"POT-Creation-Date: 2022-11-23 08:55+0000\n"
 "PO-Revision-Date: 2022-05-21 00:47\n"
 "Last-Translator: \n"
 "Language-Team: Romanian\n"
@@ -3503,7 +3503,7 @@ msgstr ""
 msgid "Editing data for %s"
 msgstr ""
 
-#: judge/views/problem_data.py:263 judge/views/problem_data.py:264
+#: judge/views/problem_data.py:265 judge/views/problem_data.py:266
 #, python-format
 msgid "Generated init.yml for %s"
 msgstr ""
@@ -4698,7 +4698,7 @@ msgstr ""
 msgid "Pretest?"
 msgstr ""
 
-#: templates/problem/data.html:433 templates/problem/submit.html:260
+#: templates/problem/data.html:433 templates/problem/submit.html:273
 msgid "Submit!"
 msgstr "Trimiteți!"
 
@@ -4942,15 +4942,19 @@ msgstr "Aleatoriu"
 msgid "Your source code must contain at most 65536 characters."
 msgstr "Codul sursă trebuie să conțină cel mult 65536 de caractere."
 
-#: templates/problem/submit.html:204
+#: templates/problem/submit.html:212
 msgid "Warning!"
 msgstr "Atenție!"
 
-#: templates/problem/submit.html:222
+#: templates/problem/submit.html:230
 msgid "You have 0 submissions left"
 msgstr ""
 
-#: templates/problem/submit.html:256
+#: templates/problem/submit.html:242
+msgid "Chose file to upload"
+msgstr ""
+
+#: templates/problem/submit.html:269
 msgid "No judge is available for this problem."
 msgstr "Nici un judge nu este disponibil pentru această problemă."
 

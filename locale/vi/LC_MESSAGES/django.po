@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dmoj\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-23 11:22+0700\n"
+"POT-Creation-Date: 2022-11-23 08:55+0000\n"
 "PO-Revision-Date: 2022-07-04 01:02\n"
 "Last-Translator: \n"
 "Language-Team: Vietnamese\n"
@@ -3564,7 +3564,7 @@ msgstr "Sửa dữ liệu cho {0}"
 msgid "Editing data for %s"
 msgstr "Chỉnh sửa các dữ liệu cho %s"
 
-#: judge/views/problem_data.py:263 judge/views/problem_data.py:264
+#: judge/views/problem_data.py:265 judge/views/problem_data.py:266
 #, python-format
 msgid "Generated init.yml for %s"
 msgstr "Tạo file init.yml cho %s"
@@ -4759,7 +4759,7 @@ msgstr "Tập tin đầu ra"
 msgid "Pretest?"
 msgstr "Thử sơ bộ?"
 
-#: templates/problem/data.html:433 templates/problem/submit.html:260
+#: templates/problem/data.html:433 templates/problem/submit.html:273
 msgid "Submit!"
 msgstr "Nộp bài!"
 
@@ -5010,15 +5010,19 @@ msgstr "Ngẫu nhiên"
 msgid "Your source code must contain at most 65536 characters."
 msgstr "Mã nguồn của bạn chỉ được chứa tối đa 65536 kí tự."
 
-#: templates/problem/submit.html:204
+#: templates/problem/submit.html:212
 msgid "Warning!"
 msgstr "Cảnh báo!"
 
-#: templates/problem/submit.html:222
+#: templates/problem/submit.html:230
 msgid "You have 0 submissions left"
 msgstr "Bạn còn 0 lần nộp"
 
-#: templates/problem/submit.html:256
+#: templates/problem/submit.html:242
+msgid "Chose file to upload"
+msgstr "Chọn file để nộp"
+
+#: templates/problem/submit.html:269
 msgid "No judge is available for this problem."
 msgstr "Bài tập này hiện không sẵn sàng để chấm."
 
