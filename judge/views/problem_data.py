@@ -53,7 +53,7 @@ class ProblemDataForm(ModelForm):
         fields = ['zipfile', 'generator', 'interactor', 'output_limit', 'output_prefix',
                   'checker', 'checker_file', 'checker_args']
         widgets = {
-            'generator': HiddenInput,
+            # 'generator': HiddenInput,
             'checker_args': HiddenInput,
             'output_prefix': HiddenInput,
         }
@@ -67,7 +67,7 @@ class ProblemCaseForm(ModelForm):
         fields = ('order', 'type', 'input_file', 'output_file', 'points',
                   'is_pretest', 'output_limit', 'output_prefix', 'checker', 'checker_args', 'generator_args')
         widgets = {
-            'generator_args': HiddenInput,
+            # 'generator_args': HiddenInput,
             'type': Select(attrs={'style': 'width: 100%'}),
             'points': NumberInput(attrs={'style': 'width: 4em'}),
             'output_prefix': NumberInput(attrs={'style': 'width: 4.5em'}),
