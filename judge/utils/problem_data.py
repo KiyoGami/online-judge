@@ -70,7 +70,7 @@ class ProblemDataCompiler(object):
                         'name': case.checker,
                         'args': {
                             'files': [case.checker_file.name.split('/')[-1]],
-                            'lang': 'CPP20',
+                            'lang': 'CPP17',
                             'type': 'testlib',
                         },
                     }
@@ -172,7 +172,7 @@ class ProblemDataCompiler(object):
                 raise ProblemDataError(_('How did you corrupt the interactor path?'))
             init['interactive'] = {
                 'files': [interactor_path[1]],
-                'lang': 'CPP20',
+                'lang': 'CPP17',
                 'type': 'testlib',
             }
 
