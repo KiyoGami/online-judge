@@ -53,7 +53,7 @@ class ProblemDataForm(ModelForm):
         fields = ['zipfile', 'generator', 'interactor', 'output_limit', 'output_prefix',
                   'checker', 'checker_file', 'checker_args']
         widgets = {
-            # 'generator': HiddenInput,
+            'generator': HiddenInput,
             'checker_args': HiddenInput,
             'output_prefix': HiddenInput,
         }
@@ -67,7 +67,6 @@ class ProblemCaseForm(ModelForm):
         fields = ('order', 'type', 'input_file', 'output_file', 'points',
                   'is_pretest', 'output_limit', 'output_prefix', 'checker', 'checker_args', 'generator_args')
         widgets = {
-            # 'generator_args': HiddenInput,
             'type': Select(attrs={'style': 'width: 100%'}),
             'points': NumberInput(attrs={'style': 'width: 4em'}),
             'output_prefix': NumberInput(attrs={'style': 'width: 4.5em'}),
@@ -196,7 +195,7 @@ class ProblemDataView(TitleMixin, ProblemManagerMixin):
             if len(old_cases) == 0 and len(valid_files) > 2:
                 if valid_files[0].endswith('/'):
                     valid_files = valid_files[1:]
-                io_files = sorted([(os.path.split(f)[0], f) for f in valid_files], key=lambda x: (x[0], x[1]))
+                io_files = sorted([(f.rsplit('.', 1)[0], f) for f in valid_files], key=lambda x: (len(x[0]), x[0], x[1]))
                 number_of_cases = len(io_files) // 2
                 points_each_case = int(problem.points / number_of_cases)
                 remain_points = problem.points - number_of_cases * points_each_case
@@ -208,6 +207,9 @@ class ProblemDataView(TitleMixin, ProblemManagerMixin):
                                            output_file=io_files[i * 2 + 1][1], points=points, is_pretest=False)
                     case.dataset_id = problem.id
                     case.save()
+            elif len(old_cases) > 0 and len(valid_files) == 0:
+                for case in old_cases:
+                    case.delete()
             else:
                 for case in cases_formset.save(commit=False):
                     case.dataset_id = problem.id

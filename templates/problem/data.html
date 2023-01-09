@@ -387,10 +387,10 @@
                 <th>{{ _('Output file') }}</th>
                 <th>{{ _('Points') }}</th>
                 <th>{{ _('Pretest?') }}</th>
-                <th class="output-prefix">{{ _('Output prefix') }}</th>
+                <!-- <th class="output-prefix">{{ _('Output prefix') }}</th>
                 <th class="output-limit">{{ _('Output limit') }}</th>
                 <th class="checker">{{ _('Checker') }}</th>
-                <th class="generator-args">{{ _('Generator args') }}</th>
+                <th class="generator-args">{{ _('Generator args') }}</th> -->
                 {% if cases_formset.can_delete %}
                     <th>{{ _('Delete?') }}</th>
                 {% endif %}
@@ -420,7 +420,7 @@
                     </td>
                     <td>{{ form.points.errors }}{{ form.points }}</td>
                     <td>{{ form.is_pretest.errors }}{{ form.is_pretest }}</td>
-                    <td class="output-prefix">{{ form.output_prefix.errors }}{{ form.output_prefix }}</td>
+                    <!-- <td class="output-prefix">{{ form.output_prefix.errors }}{{ form.output_prefix }}</td>
                     <td class="output-limit">{{ form.output_limit.errors }}{{ form.output_limit }}</td>
                     <td class="checker">
                         {{ form.checker.errors }}{{ form.checker }}{{ form.checker_args.errors }}{{ form.checker_args }}
@@ -430,7 +430,7 @@
                             <i class="fa fa-pencil"></i>
                             {{ _('Edit') }}
                         </a>
-                    </td>
+                    </td> -->
                     {% if cases_formset.can_delete %}
                         <td>{{ form.DELETE }}</td>
                     {% endif %}
