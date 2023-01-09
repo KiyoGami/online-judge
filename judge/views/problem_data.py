@@ -195,7 +195,8 @@ class ProblemDataView(TitleMixin, ProblemManagerMixin):
             if len(old_cases) == 0 and len(valid_files) > 2:
                 if valid_files[0].endswith('/'):
                     valid_files = valid_files[1:]
-                io_files = sorted([(f.rsplit('.', 1)[0], f) for f in valid_files], key=lambda x: (len(x[0]), x[0], x[1]))
+                io_files = sorted([(f.rsplit('.', 1)[0], f) for f in valid_files],
+                                  key=lambda x: (len(x[0]), x[0], x[1]))
                 number_of_cases = len(io_files) // 2
                 points_each_case = int(problem.points / number_of_cases)
                 remain_points = problem.points - number_of_cases * points_each_case
