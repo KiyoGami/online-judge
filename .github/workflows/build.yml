@@ -35,7 +35,11 @@ jobs:
         pip install mysqlclient coverage
         cp .ci.settings.py dmoj/local_settings.py
     - name: Start MySQL
-      run: sudo systemctl start mysql.service
+      run:  |
+        sudo systemctl start mysql.service
+        python3 manage.py makemigrations
+        python3 manage.py migrate
+        python3 manage.py migrate --run-syncdb
     - name: Run unit tests
       run: coverage run --source=. manage.py test judge
     - name: Generate coverage report
