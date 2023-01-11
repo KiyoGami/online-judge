@@ -238,7 +238,7 @@ class ProblemPdfView(ProblemMixin, SingleObjectMixin, View):
                     'description': problem.description if trans is None else trans.description,
                     'url': request.build_absolute_uri(),
                     'math_engine': maker.math_engine,
-                }).replace('"//', '"https://').replace("'//", "'https://")
+                }).replace('"//', '"http://').replace("'//", "'http://")
                 maker.title = problem_name
 
                 assets = ['style.css', 'pygment-github.css']
