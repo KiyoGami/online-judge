@@ -15,3 +15,4 @@ resources/martor-description.css
 sass_processed
 .env
 <desired bridge log path>
+uwsgi.ini
