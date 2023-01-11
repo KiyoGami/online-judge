@@ -8,6 +8,7 @@ import shutil
 import subprocess
 import uuid
 
+
 from django.conf import settings
 from django.utils.translation import gettext
 
@@ -296,14 +297,14 @@ class SeleniumPDFRender(BasePdfMaker):
     def _make(self, debug):
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
+        options.add_argument("--disable-gpu")
         options.binary_location = settings.SELENIUM_CUSTOM_CHROME_PATH
 
         browser = webdriver.Chrome(settings.SELENIUM_CHROMEDRIVER_PATH, options=options)
         browser.get('file://%s' % self.htmlfile)
         self.log = self.get_log(browser)
-
         try:
-            WebDriverWait(browser, 15).until(EC.presence_of_element_located((By.CLASS_NAME, 'math-loaded')))
+            WebDriverWait(browser, 30).until(EC.presence_of_element_located((By.CLASS_NAME, 'math-loaded')))
         except TimeoutException:
             logger.error('PDF math rendering timed out')
             self.log = self.get_log(browser) + '\nPDF math rendering timed out'
