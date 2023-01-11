@@ -81,15 +81,14 @@ class MathoidMathParser(object):
             logger.error('Mathoid failure for: %s\n%s', formula, data)
             return
 
-        if any(i not in data for i in ('mml', 'png', 'svg', 'mathoidStyle')):
-            logger.error('Mathoid did not return required information (mml, png, svg, mathoidStyle needed):\n%s', data)
+        if any(i not in data for i in ('mml', 'svg', 'mathoidStyle')):
+            logger.error('Mathoid did not return required information (mml, svg, mathoidStyle needed):\n%s', data)
             return
 
         css = data['mathoidStyle']
         mml = data['mml']
         result = {
             'css': css, 'mml': mml,
-            'png': self.cache.cache_data(hash, 'png', bytearray(data['png']['data'])),
             'svg': self.cache.cache_data(hash, 'svg', data['svg'].encode('utf-8')),
         }
         self.cache.cache_data(hash, 'mml', mml.encode('utf-8'), url=False, gzip=False)
@@ -99,7 +98,6 @@ class MathoidMathParser(object):
     def query_cache(self, hash):
         result = {
             'svg': self.cache.get_url(hash, 'svg'),
-            'png': self.cache.get_url(hash, 'png'),
         }
 
         key = 'mathoid:css:' + hash
@@ -138,7 +136,6 @@ class MathoidMathParser(object):
             'msp': self.output_msp,
             'svg': self.output_svg,
             'jax': self.output_jax,
-            'png': self.output_png,
             'raw': lambda x: x,
         }[self.type](result)
 
@@ -147,33 +144,25 @@ class MathoidMathParser(object):
 
     def output_msp(self, result):
         # 100% MediaWiki compatibility.
-        return format_html('<span class="{5}-math">'
+        return format_html('<span class="{4}-math">'
                            '<span class="mwe-math-mathml-{5} mwe-math-mathml-a11y"'
                            ' style="display: none;">{0}</span>'
-                           '<img src="{1}" class="mwe-math-fallback-image-{5}"'
-                           ' onerror="this.src=\'{2}\';this.onerror=null"'
-                           ' aria-hidden="true" style="{3}" alt="{4}"></span>',
-                           mark_safe(result['mml']), result['svg'], result['png'], result['css'], result['tex'],
+                           '<img src="{1}" class="mwe-math-fallback-image-{4}"'
+                           ' aria-hidden="true" style="{2}" alt="{3}"></span>',
+                           mark_safe(result['mml']), result['svg'], result['css'], result['tex'],
                            ['inline', 'display'][result['display']])
 
     def output_jax(self, result):
-        return format_html('<span class="{4}">'
-                           '''<img class="tex-image" src="{0}" style="{2}" alt="{3}"'''
-                           """ onerror="this.src='{1}';this.onerror=null">"""
-                           """<span class="tex-text" style="display:none">{5}{3}{5}</span>"""
+        return format_html('<span class="{3}">'
+                           '''<img class="tex-image" src="{0}" style="{1}" alt="{2}"'''
+                           """<span class="tex-text" style="display:none">{4}{2}{4}</span>"""
                            '</span>',
-                           result['svg'], result['png'], result['css'], result['tex'],
+                           result['svg'], result['css'], result['tex'],
                            ['inline-math', 'display-math'][result['display']], ['~', '$$'][result['display']])
 
     def output_svg(self, result):
-        return format_html('<img class="{4}" src="{0}" style="{2}" alt="{3}" '
-                           """onerror="this.src='{1}';this.onerror=null">""",
-                           result['svg'], result['png'], result['css'], result['tex'],
-                           ['inline-math', 'display-math'][result['display']])
-
-    def output_png(self, result):
-        return format_html('<img class="{3}" src="{0}" style="{1}" alt="{2}">',
-                           result['png'], result['css'], result['tex'],
+        return format_html('<img class="{3}" src="{0}" style="{1}" alt="{2}" ',
+                           result['svg'], result['css'], result['tex'],
                            ['inline-math', 'display-math'][result['display']])
 
     def display_math(self, math):
