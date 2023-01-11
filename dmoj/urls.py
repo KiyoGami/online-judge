@@ -15,7 +15,7 @@ from judge.sitemap import BlogPostSitemap, ContestSitemap, HomePageSitemap, Orga
     SolutionSitemap, UrlSitemap, UserSitemap
 from judge.views import TitledTemplateView, api, blog, comment, contests, language, license, mailgun, organization, \
     preview, problem, problem_manage, ranked_submission, register, stats, status, submission, tasks, ticket, \
-    two_factor, user, widgets
+    two_factor, user, widgets, single_svg
 from judge.views.problem_data import ProblemDataView, ProblemSubmissionDiff, \
     problem_data_file, problem_init_view
 from judge.views.register import ActivationView, RegistrationView
@@ -381,6 +381,18 @@ urlpatterns = [
         path('failure', tasks.demo_failure),
         path('progress', tasks.demo_progress),
     ])),
+
+    re_path(
+        r"^(?P<tex>texoid)/(?P<hash>[\w]+)/svg$",
+        single_svg.view,
+        name='serve-texoid-svg-file',
+    ),
+
+    re_path(
+        r"^(?P<tex>mathoid)/(?P<hash>[\w]+)/svg$",
+        single_svg.view,
+        name='serve-mathoid-svg-file',
+    )
 ]
 
 favicon_paths = ['apple-touch-icon-180x180.png', 'apple-touch-icon-114x114.png', 'android-chrome-72x72.png',
